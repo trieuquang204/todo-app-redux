@@ -1,0 +1,52 @@
+Một số lưu ý quan trong trước khi hoc redux:
+- Đã nắm được một số kiến thức html,css
+- Cú pháp và tính năng của ES6
+- Kiến thức về React bao gồm: Props, State, Functional Component, React hooks...
+- Bất đồng bộ trong java script
+
+* Redux là một PATTERN (Hay còn gọi là một khuân mẫu) cho nên chúng ta sẽ có nhiều khái niệm hay là quy tắc mới mà chúng ta cần phải học và tuân theo để redux đươc phát huy được tính hiệu quả nhất.
+
+* Redux tookit thì bản chất cũng chỉ là redux
+
+2, Redux là một thư viện js dùng để quản lý và cập nhật State của một ứng dụng. Và các State các bạn có thể hiểu là dữ liệu hay là các trạng thái của một ứng dụng frontend. Redux sử dụng các sự kiện goi là action và nó hoạt động giống như là một kho lưu trữ chung cho các state mà được sử dụng ở nhiều Component hay là nhiều nơi khác nhau ở trong ứng dụng. Đi cùng với nó sẽ là các quy tắc để có thể đảm bảo được là các state trong kho chung này sẽ được cập nhật theo một cách mà chúng ta có thể dự đoán trước được kết quả.
+
+3, Vì sao chúng ta lại phải sử dụng redux
+- Nó giúp chúng ta có thể quản lý được global state. Các state này là những state mà sẽ đươc sử dụng ở nhiều nơi ở trong ứng dụng. Điều này giúp chúng ta giải quyết một vấn đề đối với react đó là khi mà chúng ta muốn truyền dữ liệu từ Component cha vào các Component con cháu phía dưới.
+- Dễ dàng debug: Redux hướng chúng ta tới cách viết code đó là có thể dự đoán được, có thể test được
+- Xử lý caching dữ liệu từ server
+
+
+* Redux tookit: Giải quyết 3 vấn đề của redux core
+- Việc cấu hình redux phức tạp:
+- Phải cài đặt thêm nhiều package thủ công để redux có thể hoạt động hiệu quả
+- Redux yêu cầu nhiều boilerplate code: (Đoạn code lặp đi lặp lại nhiều lần)
+
+* Khi nào chúng ta nên sử dụng redux:
+- Dự án có số lượng state lớn và các state này được xử dụng ở nhiều nơi
+- Các state được cập nhật thường xuyên
+- Logic code để cập nhât đc state phức tạp
+- Ứng dụng có số lượng code trung bình hoặc lớn và có nhiều người làm chung.
+- Cần debug và xem cách state được cập nhật tại bất cứ khoảng thời gian nào.
+
+* Không phải lúc nào chúng ta cũng nên xử dụng redux:
+
+4, Kiến trúc của redux và các khái niệm:
+Hoạt động theo mô hình một chiều (one way data flow)
+- Immutability(Bất biến): Không thay đổi giá trị của object hay array. Tạo ra một object mới với một số thay đổi dựa trên object trước đó. K thay đổi hay thao tác trực tiếp trên môt object nào đó mà chúng ta sẽ tạo ra một phiên bản copy
+
+* Lý do k nên thay đổi state trong redux một cách trưc tiếp:
+- Có thể gây ra bug ui như là phía giao diện sẽ k đc cập nhật một cách chính xác để hiển thị lên các giá trị mới nhất
+- Làm khó để hiểu tại sao một state có thể được cập nhật
+- Làm cho việc viết test rất khó
+- Phá vỡ khả năng có thể xem sự thay đổi của state ở từng thời điểm khác nhau
+- Phá vỡ đi khuân mẫu mà redux đã xây dựng.
+
+*
+Reducer: Là một function cơ bản. Nhận vào hai tham số state và action. Được sử dụng để cập nhật lại giá trị state ở trong kho chung. Giá tri state mới luôn luôn đc tính toán dựa theo state trước đó. Không được có một đoạn code bất đồng bộ nào ở trong reducer.
+
+* action: đơn giản là một object do chúng ta quy định. Và nên có hai field type: là đoạn text mô tả cho hành động này là gì và một payload nếu có.
+
+- action creator:Là một function để tạo ra một action. Trả về một action giúp chúng ta kp viết các object lặp đi lặp lại
+
+* dispatch: Là môt function. Cách duy nhất để có thể cập nhật lại state ở trong store đó là sử dụng dispatch function.
+Dispatch sẽ nhận vào một action . Giống như chúng ta bắn đi một cái sự kiện từ phía ui
