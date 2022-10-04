@@ -1,10 +1,13 @@
 import { Col, Row, Input, Button, Select, Tag } from "antd";
 import Todo from "../Todo";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../../redux/actions";
+// import { addTodo } from "../../redux/actions";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { todoListRemainingSelector } from "../../redux/selectors";
+
+// redux toolkit 
+import todoListSlice from "./todosSlice";
 
 export default function TodoList() {
   const [todoName, setTodoName] = useState("");
@@ -24,10 +27,27 @@ export default function TodoList() {
     setPriority(value);
   };
 
+  // const handleAddButtonClick = () => {
+  //   if(todoName) {
+  //     dispatch(
+  //       addTodo({
+  //         id: uuidv4(),
+  //         name: todoName,
+  //         completed: false,
+  //         priority: priority,
+  //       })
+  //     );
+  //     setTodoName("");
+  //     setPriority("Medium");
+  //   } else {
+  //     alert('Field can not be empty');
+  //   }
+  // };
+
   const handleAddButtonClick = () => {
     if(todoName) {
       dispatch(
-        addTodo({
+        todoListSlice.actions.addTodo({
           id: uuidv4(),
           name: todoName,
           completed: false,

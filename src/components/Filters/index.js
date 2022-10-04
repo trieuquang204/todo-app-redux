@@ -1,11 +1,14 @@
 import { Col, Row, Input, Typography, Radio, Select, Tag } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  serchFilterChange,
-  statusFilterChange,
-  prioritiesFilterChange,
-} from "../../redux/actions";
+// import {
+//   serchFilterChange,
+//   statusFilterChange,
+//   prioritiesFilterChange,
+// } from "../../redux/actions";
+
+// Redux toolkit 
+import filtersSlice from "./filtersSlice";
 
 const { Search } = Input;
 
@@ -16,19 +19,31 @@ export default function Filters() {
 
   const dispatch = useDispatch();
 
+  // const handleSearchTextChange = (e) => {
+  //   setSearchText(e.target.value);
+  //   dispatch(serchFilterChange(e.target.value));
+  // };
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
-    dispatch(serchFilterChange(e.target.value));
+    dispatch(filtersSlice.actions.serchFilterChange(e.target.value));
   };
 
+  // const handleStatusChange = (e) => {
+  //   setFilterStatus(e.target.value);
+  //   dispatch(statusFilterChange(e.target.value));
+  // };
   const handleStatusChange = (e) => {
     setFilterStatus(e.target.value);
-    dispatch(statusFilterChange(e.target.value));
+    dispatch(filtersSlice.actions.statusFilterChange(e.target.value));
   };
 
+  // const handlePriorityChange = (value) => {
+  //   setFilterPriorities(value);
+  //   dispatch(prioritiesFilterChange(value));
+  // };
   const handlePriorityChange = (value) => {
     setFilterPriorities(value);
-    dispatch(prioritiesFilterChange(value));
+    dispatch(filtersSlice.actions.prioritiesFilterChange(value));
   };
 
   return (

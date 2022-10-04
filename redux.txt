@@ -53,3 +53,6 @@ Dispatch sẽ nhận vào một action . Giống như chúng ta bắn đi một 
 
 * yarn add redux-devtools-extension
 * yarn add reselect
+
+
+* yarn add @reduxjs/toolkit

@@ -7,12 +7,18 @@
 
 // export const searchSelector = (state) => state.filters.search;
 
-import { createSelector } from "reselect";
+
+
+// Redux toolkit
+// K cần cài reselect 
+import { createSelector } from "@reduxjs/toolkit";
+// import { createSelector } from "reselect";
 
 export const searchSelector = (state) => state.filters.search;
 export const filterStatusSelector = (state) => state.filters.status;
 export const filterPrioritiesSelector = (state) => state.filters.priorities;
 export const todoListSelector = (state) => state.todoList;
+
 
 export const todoListRemainingSelector = createSelector(
   todoListSelector,
