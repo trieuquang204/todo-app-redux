@@ -53,6 +53,7 @@ export default function TodoList() {
             priority={todo.priority}
             key={todo.id}
             completed={todo.completed}
+            id={todo.id}
           />
         ))}
       </Col>

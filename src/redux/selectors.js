@@ -30,7 +30,7 @@ export const todoListRemainingSelector = createSelector(
       return (
         todo.name.includes(searchText) &&
         (status === "Completed" ? todo.completed : !todo.completed) &&
-        (priorities.length ? priorities.includes(todo.priority) : true)
+        (priorities && priorities.length ? priorities.includes(todo.priority) : true)
       );
     });
   }
