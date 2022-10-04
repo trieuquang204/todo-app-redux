@@ -50,3 +50,6 @@ Reducer: Là một function cơ bản. Nhận vào hai tham số state và actio
 
 * dispatch: Là môt function. Cách duy nhất để có thể cập nhật lại state ở trong store đó là sử dụng dispatch function.
 Dispatch sẽ nhận vào một action . Giống như chúng ta bắn đi một cái sự kiện từ phía ui
+
+* yarn add redux-devtools-extension
+* yarn add reselect
