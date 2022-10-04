@@ -25,16 +25,20 @@ export default function TodoList() {
   };
 
   const handleAddButtonClick = () => {
-    dispatch(
-      addTodo({
-        id: uuidv4(),
-        name: todoName,
-        completed: false,
-        priority: priority,
-      })
-    );
-    setTodoName('');
-    setPriority('Medium');
+    if(todoName) {
+      dispatch(
+        addTodo({
+          id: uuidv4(),
+          name: todoName,
+          completed: false,
+          priority: priority,
+        })
+      );
+      setTodoName("");
+      setPriority("Medium");
+    } else {
+      alert('Field can not be empty');
+    }
   };
 
   return (
@@ -44,7 +48,12 @@ export default function TodoList() {
         <Todo name='Learn Redux' priority='Medium' />
         <Todo name='Learn JavaScript' priority='Low' /> */}
         {todoList.map((todo) => (
-          <Todo name={todo.name} priority={todo.priority} key={todo.id} />
+          <Todo
+            name={todo.name}
+            priority={todo.priority}
+            key={todo.id}
+            completed={todo.completed}
+          />
         ))}
       </Col>
       <Col span={24}>
