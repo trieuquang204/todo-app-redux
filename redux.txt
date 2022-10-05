@@ -56,3 +56,5 @@ Dispatch sẽ nhận vào một action . Giống như chúng ta bắn đi một 
 
 
 * yarn add @reduxjs/toolkit
+
+* yarn add --dev miragejs

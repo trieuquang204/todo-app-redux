@@ -3,6 +3,12 @@ import './App.css';
 import TodoList from './components/TodoList';
 import Filters from './components/Filters';
 
+import { setupServer } from './fakeApis';
+
+if (process.env.NODE_ENV === 'development') {
+  setupServer();
+}
+
 const { Title } = Typography;
 
 function App() {
