@@ -4,6 +4,9 @@ import TodoList from './components/TodoList';
 import Filters from './components/Filters';
 
 import { setupServer } from './fakeApis';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchTodos } from './components/TodoList/todosSlice';
 
 if (process.env.NODE_ENV === 'development') {
   setupServer();
@@ -12,6 +15,13 @@ if (process.env.NODE_ENV === 'development') {
 const { Title } = Typography;
 
 function App() {
+const dispatch= useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [])
+
+
   return (
     <div
       style={{

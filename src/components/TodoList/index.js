@@ -7,7 +7,7 @@ import { useState } from "react";
 import { todoListRemainingSelector } from "../../redux/selectors";
 
 // redux toolkit
-import todoListSlice, { addTodos } from "./todosSlice";
+import todoListSlice, { addTodos, addNewTodo } from "./todosSlice";
 
 export default function TodoList() {
   const [todoName, setTodoName] = useState("");
@@ -47,14 +47,14 @@ export default function TodoList() {
   const handleAddButtonClick = () => {
     if (todoName) {
       // This is dispatch action creator
-      dispatch(
-        todoListSlice.actions.addTodo({
-          id: uuidv4(),
-          name: todoName,
-          completed: false,
-          priority: priority,
-        })
-      );
+      // dispatch(
+      //   todoListSlice.actions.addTodo({
+      //     id: uuidv4(),
+      //     name: todoName,
+      //     completed: false,
+      //     priority: priority,
+      //   })
+      // );
 
       // This is dispatch thunk action creator
       // dispatch(
@@ -65,6 +65,14 @@ export default function TodoList() {
       //     priority: priority,
       //   })
       // );
+      dispatch(
+        addNewTodo({
+          id: uuidv4(),
+          name: todoName,
+          completed: false,
+          priority: priority,
+        })
+      );
       setTodoName("");
       setPriority("Medium");
     } else {
