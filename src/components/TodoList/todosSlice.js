@@ -25,7 +25,7 @@
 // Redux toolkit
 import { createSlice } from "@reduxjs/toolkit";
 
-export default createSlice({
+const todosSlice = createSlice({
   name: "todoList",
   initialState: [
     { id: 1, name: "name1", completed: false, priority: "Medium" },
@@ -48,3 +48,15 @@ export default createSlice({
     },
   },
 });
+
+export default todosSlice;
+
+// Thunk action creators: Là một function trả về một thunk action
+// export function addTodos(todo) {  //Thunk action creator
+//   return function addTodosThunk(dispatch, getState) { // la thunk action - la mot function
+//     todo.name = 'Quang updated';
+//     todo.completed = true;
+//     dispatch(todosSlice.actions.addTodo(todo));
+//     console.log('getState', getState());
+//   }
+// }
